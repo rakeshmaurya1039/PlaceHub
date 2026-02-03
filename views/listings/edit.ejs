@@ -1,0 +1,118 @@
+<% layout("/layouts/boilerplate")%>
+<div class="row mt-3">
+    <div class="col-8 offset-2">
+    <h3>Edit your  listing</h3>
+    <form method="POST" action="/listings/<%=listing._id %>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" name="listing[title]" value="<%=listing.title%>" class="form-control" required>
+            <div class="valid-feedback">Title looks good!</div>
+        </div> 
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea name="listing[description]" class="form-control" required><%=listing.description%></textarea>
+            <div class="invalid-feedback">Please enter short description</div>
+        </div>
+        <div class="mb-3">
+           <p> Original Listing image</p>
+           <img style="width: 50%;" src="<%= listing.image.url %>" alt="">
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Upload new image</label>
+            <input type="file" name="listing[image][url]" class="form-control">
+        </div>
+        <div class="row">
+          <div class="mb-3 col-md-4">
+              <label for="price" class="form-label">Price</label>
+              <input type="number" name="listing[price]" value="<%=listing.price%>" class="form-control" required>
+              <div class="invalid-feedback">Price should be valid</div>
+          </div>
+           <div class="mb-3">
+                <label class="form-label fw-bold">Category</label>
+                <div class="d-flex flex-wrap gap-3">
+                    <div>
+                    <input type="checkbox" name="listing[category]" value="Rooms">
+                    <label>🛏 Rooms</label>
+                    </div>
+
+                    <div>
+                    <input type="checkbox" name="listing[category]" value="Cities">
+                    <label>🏙 Cities</label>
+                    </div>
+
+                    <div>
+                    <input type="checkbox" name="listing[category]" value="Mountain">
+                    <label>⛰ Mountain</label>
+                    </div>
+
+                    <div>
+                    <input type="checkbox" name="listing[category]" value="Castles">
+                    <label>🏰 Castles</label>
+                    </div>
+
+                    <div>
+                    <input type="checkbox" name="listing[category]" value="Pools">
+                    <label>🏊 Pools</label>
+                    </div>
+
+                    <div>
+                    <input type="checkbox" name="listing[category]" value="Camping">
+                    <label>🏕 Camping</label>
+                    </div>
+
+                    <div>
+                    <input type="checkbox" name="listing[category]" value="Farms">
+                    <label>🌾 Farms</label>
+                    </div>
+
+                    <div>
+                    <input type="checkbox" name="listing[category]" value="Arctic">
+                    <label>❄ Arctic</label>
+                    </div>
+
+                    <div>
+                    <input type="checkbox" name="listing[category]" value="Beach">
+                    <label>🏖 Beach</label>
+                    </div>
+
+                    <div>
+                    <input type="checkbox" name="listing[category]" value="Hotel">
+                    <label>🏨 Hotel</label>
+                    </div>
+
+                    <div>
+                    <input type="checkbox" name="listing[category]" value="Romantic">
+                    <label>❤️ Romantic</label>
+                    </div>
+
+                    <div>
+                    <input type="checkbox" name="listing[category]" value="Lakefront">
+                    <label>🌊 Lakefront</label>
+                    </div>
+
+                    <div>
+                    <input type="checkbox" name="listing[category]" value="Luxury">
+                    <label>💎 Luxury</label>
+                    </div>
+                </div>
+
+                <div class="invalid-feedback">Please select at least one category</div>
+                </div>
+
+
+          <div class="mb-3 col-md-8">
+             <label for="location" class="form-label">Location</label>
+             <input type="text"  name="listing[location]" value="<%=listing.location%>" class="form-control" required>
+             <div class="invalid-feedback">Location should be valid</div>
+          </div>
+        </div>
+        <div class="mb-3">
+            <label for="country" class="form-label">Country</label>
+            <input type="text"  name="listing[country]" value="<%=listing.country%>" class="form-control" required>
+            <div class="invalid-feedback">Country name should be valid</div>
+        </div>
+        <br>
+        <button class="btn btn-dark mb-3 btn-edit">Edit</button>
+    </form>
+    </div>
+</div>
